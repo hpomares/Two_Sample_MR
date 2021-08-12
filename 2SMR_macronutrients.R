@@ -164,7 +164,7 @@ dat_harm_chd_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = chd_out_dat_prot)
 #
-mr_report(dat_harm_chd_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_chd_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -178,7 +178,7 @@ raps_dat_harm_chd_prot <- mr(dat_harm_chd_prot,  method_list = c("mr_raps"))
 MRAll_chd_prot <- mr_allmethods(MRInput_chd_prot, method = "all")
 res_chd_prot<- mr(dat_harm_chd_prot)
 #
-sink("Results/MRAll_chd_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_chd_prot.txt")
 MRAll_chd_prot
 generate_odds_ratios(res_chd_prot)
 sink()
@@ -186,7 +186,7 @@ p_chd_prot<- mr_plot(mr_allmethods(MRInput_chd_prot, method = "main"))
 p_chd_prot +
     xlab("Protein intake (E%)") +
     ylab("Coronary heart disease (CHD)")+
-    ggsave(file = "Results/MRAll_chd_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_chd_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_chd_prot<-mr_heterogeneity(dat_harm_chd_prot) #Heterogeneity Q and Q p-val
@@ -200,7 +200,7 @@ p_leave_chd_prot <- mr_leaveoneout_plot(leave_comb_chd_prot)
 p_leave_chd_prot[[1]]
 #
 mrpresso_chd_prot<- run_mr_presso(dat_harm_chd_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_chd_prot, file = "mr_presso/mrpresso_chd_prot.rds")
+saveRDS(mrpresso_chd_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_chd_prot.rds")
 
 # t2dadjbmi
 # Harmonise
@@ -208,7 +208,7 @@ dat_harm_t2dadjbmi_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = t2dadjbmi_out_dat_prot)
 #
-mr_report(dat_harm_t2dadjbmi_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_t2dadjbmi_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -219,7 +219,7 @@ MRInput_t2dadjbmi_prot <- mr_input(bx = dat_harm_t2dadjbmi_prot$beta.exposure,
 #Run MR
 MRAll_t2dadjbmi_prot <- mr_allmethods(MRInput_t2dadjbmi_prot, method = "all")
 res_t2dadjbmi_prot<- mr(dat_harm_t2dadjbmi_prot)
-sink("Results/MRAll_t2dadjbmi_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_t2dadjbmi_prot.txt")
 MRAll_t2dadjbmi_prot
 generate_odds_ratios(res_t2dadjbmi_prot)
 sink()
@@ -227,7 +227,7 @@ p_t2dadjbmi_prot<- mr_plot(mr_allmethods(MRInput_t2dadjbmi_prot, method = "main"
 p_t2dadjbmi_prot +
     xlab("Protein intake (E%)") +
     ylab("T2D adjusted for BMI (T2DadjBMI)") +
-    ggsave(file = "Results/MRAll_t2dadjbmi_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_t2dadjbmi_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_t2dadjbmi_prot<-mr_heterogeneity(dat_harm_t2dadjbmi_prot) #Heterogeneity Q and Q p-val
@@ -241,7 +241,7 @@ p_leave_t2dadjbmi_prot <- mr_leaveoneout_plot(leave_comb_t2dadjbmi_prot)
 p_leave_t2dadjbmi_prot[[1]]
 #
 mrpresso_t2dadjbmi_prot<- run_mr_presso(dat_harm_t2dadjbmi_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_t2dadjbmi_prot, file = "mr_presso/mrpresso_t2dadjbmi_prot.rds")
+saveRDS(mrpresso_t2dadjbmi_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_t2dadjbmi_prot.rds")
 #  Not enough intrumental variables
 
 # T2D
@@ -250,7 +250,7 @@ dat_harm_t2d_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = t2d_out_dat_prot)
 #
-mr_report(dat_harm_t2d_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_t2d_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -261,7 +261,7 @@ MRInput_t2d_prot <- mr_input(bx = dat_harm_t2d_prot$beta.exposure,
 #Run MR
 MRAll_t2d_prot <- mr_allmethods(MRInput_t2d_prot, method = "all")
 res_t2d_prot<- mr(dat_harm_t2d_prot)
-sink("Results/MRAll_t2d_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_t2d_prot.txt")
 MRAll_t2d_prot
 generate_odds_ratios(res_t2d_prot)
 sink()
@@ -269,7 +269,7 @@ p_t2d_prot<- mr_plot(mr_allmethods(MRInput_t2d_prot, method = "main"))
 p_t2d_prot +
     xlab("Protein intake (E%)") +
     ylab("T2D adjusted for BMI (T2D)") +
-    ggsave(file = "Results/MRAll_t2d_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_t2d_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_t2d_prot<-mr_heterogeneity(dat_harm_t2d_prot) #Heterogeneity Q and Q p-val
@@ -283,7 +283,7 @@ p_leave_t2d_prot <- mr_leaveoneout_plot(leave_comb_t2d_prot)
 p_leave_t2d_prot[[1]]
 #
 mrpresso_t2d_prot<- run_mr_presso(dat_harm_t2d_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_t2d_prot, file = "mr_presso/mrpresso_t2d_prot.rds")
+saveRDS(mrpresso_t2d_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_t2d_prot.rds")
 
 # Fasting glucose
 # Harmonise
@@ -291,7 +291,7 @@ dat_harm_fg_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = fg_out_dat_prot)
 #
-mr_report(dat_harm_fg_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_fg_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -301,14 +301,14 @@ MRInput_fg_prot <- mr_input(bx = dat_harm_fg_prot$beta.exposure,
                             byse = dat_harm_fg_prot$se.outcome)
 #Run MR
 MRAll_fg_prot <- mr_allmethods(MRInput_fg_prot, method = "all")
-sink("Results/MRAll_fg_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_fg_prot.txt")
 MRAll_fg_prot
 sink()
 p_fg_prot<- mr_plot(mr_allmethods(MRInput_fg_prot, method = "main"))
 p_fg_prot +
     xlab("Protein intake (E%)") +
     ylab("Fasting glucose (FG)")+
-    ggsave(file = "Results/MRAll_fg_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_fg_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_fg_prot<-mr_heterogeneity(dat_harm_fg_prot) #Heterogeneity Q and Q p-val
@@ -322,7 +322,7 @@ p_leave_fg_prot <- mr_leaveoneout_plot(leave_comb_fg_prot)
 p_leave_fg_prot[[1]]
 #
 mrpresso_fg_prot<- run_mr_presso(dat_harm_fg_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_fg_prot, file = "mr_presso/mrpresso_fg_prot.rds")
+saveRDS(mrpresso_fg_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_fg_prot.rds")
 #  Not enough instrumental variables
 
 # Two Hour glucose
@@ -331,7 +331,7 @@ dat_harm_twohg_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = twohg_out_dat_prot)
 #
-mr_report(dat_harm_twohg_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_twohg_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -341,14 +341,14 @@ MRInput_twohg_prot <- mr_input(bx = dat_harm_twohg_prot$beta.exposure,
                                byse = dat_harm_twohg_prot$se.outcome)
 #Run MR
 MRAll_twohg_prot <- mr_allmethods(MRInput_twohg_prot, method = "all")
-sink("Results/MRAll_twohg_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_twohg_prot.txt")
 MRAll_twohg_prot
 sink()
 p_twohg_prot<- mr_plot(mr_allmethods(MRInput_twohg_prot, method = "main"))
 p_twohg_prot +
     xlab("Protein intake (E%)") +
     ylab("Two-hour glucose (2hG)")+
-    ggsave(file = "Results/MRAll_twohg_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_twohg_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_twohg_prot<-mr_heterogeneity(dat_harm_twohg_prot) #Heterogeneity Q and Q p-val
@@ -362,7 +362,7 @@ p_leave_twohg_prot <- mr_leaveoneout_plot(leave_comb_twohg_prot)
 p_leave_twohg_prot[[1]]
 #
 mrpresso_twohg_prot<- run_mr_presso(dat_harm_twohg_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_twohg_prot, file = "mr_presso/mrpresso_twohg_prot.rds")
+saveRDS(mrpresso_twohg_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_twohg_prot.rds")
 #  Not enough instrumental variables
 
 # Stroke
@@ -371,7 +371,7 @@ dat_harm_stroke_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = stroke_out_dat_prot)
 #
-mr_report(dat_harm_stroke_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_stroke_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -382,7 +382,7 @@ MRInput_stroke_prot <- mr_input(bx = dat_harm_stroke_prot$beta.exposure,
 #Run MR
 MRAll_stroke_prot <- mr_allmethods(MRInput_stroke_prot, method = "all")
 res_stroke_prot<- mr(dat_harm_stroke_prot)
-sink("Results/MRAll_stroke_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_stroke_prot.txt")
 MRAll_stroke_prot
 generate_odds_ratios(res_stroke_prot)
 sink()
@@ -390,7 +390,7 @@ p_stroke_prot<- mr_plot(mr_allmethods(MRInput_stroke_prot, method = "main"))
 p_stroke_prot +
     xlab("Protein intake (E%)") +
     ylab("Stroke")+
-    ggsave(file = "Results/MRAll_stroke_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_stroke_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_stroke_prot<-mr_heterogeneity(dat_harm_stroke_prot) #Heterogeneity Q and Q p-val
@@ -404,7 +404,7 @@ p_leave_stroke_prot <- mr_leaveoneout_plot(leave_comb_stroke_prot)
 p_leave_stroke_prot[[1]]
 #
 mrpresso_stroke_prot<- run_mr_presso(dat_harm_stroke_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_stroke_prot, file = "mr_presso/mrpresso_stroke_prot.rds")
+saveRDS(mrpresso_stroke_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_stroke_prot.rds")
 
 # HDL
 # Harmonise
@@ -412,7 +412,7 @@ dat_harm_hdl_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = hdl_out_dat_prot)
 #
-mr_report(dat_harm_hdl_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_hdl_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -422,14 +422,14 @@ MRInput_hdl_prot <- mr_input(bx = dat_harm_hdl_prot$beta.exposure,
                              byse = dat_harm_hdl_prot$se.outcome)
 #Run MR
 MRAll_hdl_prot <- mr_allmethods(MRInput_hdl_prot, method = "all")
-sink("Results/MRAll_hdl_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_hdl_prot.txt")
 MRAll_hdl_prot
 sink()
 p_hdl_prot<- mr_plot(mr_allmethods(MRInput_hdl_prot, method = "main"))
 p_hdl_prot +
     xlab("Protein intake (E%)") +
     ylab("hdl")+
-    ggsave(file = "Results/MRAll_hdl_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_hdl_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_hdl_prot<-mr_heterogeneity(dat_harm_hdl_prot) #Heterogeneity Q and Q p-val
@@ -443,7 +443,7 @@ p_leave_hdl_prot <- mr_leaveoneout_plot(leave_comb_hdl_prot)
 p_leave_hdl_prot[[1]]
 #
 mrpresso_hdl_prot<- run_mr_presso(dat_harm_hdl_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_hdl_prot, file = "mr_presso/mrpresso_hdl_prot.rds")
+saveRDS(mrpresso_hdl_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_hdl_prot.rds")
 
 # LDL
 # Harmonise
@@ -451,7 +451,7 @@ dat_harm_ldl_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = ldl_out_dat_prot)
 #
-mr_report(dat_harm_ldl_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_ldl_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -461,14 +461,14 @@ MRInput_ldl_prot <- mr_input(bx = dat_harm_ldl_prot$beta.exposure,
                              byse = dat_harm_ldl_prot$se.outcome)
 #Run MR
 MRAll_ldl_prot <- mr_allmethods(MRInput_ldl_prot, method = "all")
-sink("Results/MRAll_ldl_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_ldl_prot.txt")
 MRAll_ldl_prot
 sink()
 p_ldl_prot<- mr_plot(mr_allmethods(MRInput_ldl_prot, method = "main"))
 p_ldl_prot +
     xlab("Protein intake (E%)") +
     ylab("ldl")+
-    ggsave(file = "Results/MRAll_ldl_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_ldl_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_ldl_prot<-mr_heterogeneity(dat_harm_ldl_prot) #Heterogeneity Q and Q p-val
@@ -482,7 +482,7 @@ p_leave_ldl_prot <- mr_leaveoneout_plot(leave_comb_ldl_prot)
 p_leave_ldl_prot[[1]]
 #
 mrpresso_ldl_prot<- run_mr_presso(dat_harm_ldl_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_ldl_prot, file = "mr_presso/mrpresso_ldl_prot.rds")
+saveRDS(mrpresso_ldl_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_ldl_prot.rds")
 
 # CHOLESTEROL
 # Harmonise
@@ -490,7 +490,7 @@ dat_harm_skol_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = skol_out_dat_prot)
 #
-mr_report(dat_harm_skol_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_skol_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -500,14 +500,14 @@ MRInput_skol_prot <- mr_input(bx = dat_harm_skol_prot$beta.exposure,
                               byse = dat_harm_skol_prot$se.outcome)
 #Run MR
 MRAll_skol_prot <- mr_allmethods(MRInput_skol_prot, method = "all")
-sink("Results/MRAll_skol_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_skol_prot.txt")
 MRAll_skol_prot
 sink()
 p_skol_prot<- mr_plot(mr_allmethods(MRInput_skol_prot, method = "main"))
 p_skol_prot +
     xlab("Protein intake (E%)") +
     ylab("skol")+
-    ggsave(file = "Results/MRAll_skol_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_skol_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_skol_prot<-mr_heterogeneity(dat_harm_skol_prot) #Heterogeneity Q and Q p-val
@@ -521,7 +521,7 @@ p_leave_skol_prot <- mr_leaveoneout_plot(leave_comb_skol_prot)
 p_leave_skol_prot[[1]]
 #
 mrpresso_skol_prot<- run_mr_presso(dat_harm_skol_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_skol_prot, file = "mr_presso/mrpresso_skol_prot.rds")
+saveRDS(mrpresso_skol_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_skol_prot.rds")
 
 # TRIGLYCERIDES
 # Harmonise
@@ -529,7 +529,7 @@ dat_harm_stg_prot<- harmonise_data(
     exposure_dat = prot_exp_dat,
     outcome_dat = stg_out_dat_prot)
 #
-mr_report(dat_harm_stg_prot,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_stg_prot,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -539,14 +539,14 @@ MRInput_stg_prot <- mr_input(bx = dat_harm_stg_prot$beta.exposure,
                              byse = dat_harm_stg_prot$se.outcome)
 #Run MR
 MRAll_stg_prot <- mr_allmethods(MRInput_stg_prot, method = "all")
-sink("Results/MRAll_stg_prot.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_stg_prot.txt")
 MRAll_stg_prot
 sink()
 p_stg_prot<- mr_plot(mr_allmethods(MRInput_stg_prot, method = "main"))
 p_stg_prot +
     xlab("Protein intake (E%)") +
     ylab("stg")+
-    ggsave(file = "Results/MRAll_stg_prot_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_stg_prot_plot.pdf")
 
 # Sensitivity analyses
 het_comb_stg_prot<-mr_heterogeneity(dat_harm_stg_prot) #Heterogeneity Q and Q p-val
@@ -560,7 +560,7 @@ p_leave_stg_prot <- mr_leaveoneout_plot(leave_comb_stg_prot)
 p_leave_stg_prot[[1]]
 #
 mrpresso_stg_prot<- run_mr_presso(dat_harm_stg_prot, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_stg_prot, file = "mr_presso/mrpresso_stg_prot.rds")
+saveRDS(mrpresso_stg_prot, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_stg_prot.rds")
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #Read outcomes for Fat
@@ -613,7 +613,7 @@ dat_harm_chd_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = chd_out_dat_fat)
 #
-mr_report(dat_harm_chd_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_chd_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -624,7 +624,7 @@ MRInput_chd_fat <- mr_input(bx = dat_harm_chd_fat$beta.exposure,
 #Run MR
 MRAll_chd_fat <- mr_allmethods(MRInput_chd_fat, method = "all")
 res_chd_fat<- mr(dat_harm_chd_fat)
-sink("Results/MRAll_chd_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_chd_fat.txt")
 MRAll_chd_fat
 generate_odds_ratios(res_chd_fat)
 sink()
@@ -632,7 +632,7 @@ p_chd_fat<- mr_plot(mr_allmethods(MRInput_chd_fat, method = "main"))
 p_chd_fat +
     xlab("Fat intake (E%)") +
     ylab("Coronary heart disease (CHD)")+
-    ggsave(file = "Results/MRAll_chd_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_chd_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_chd_fat<-mr_heterogeneity(dat_harm_chd_fat) #Heterogeneity Q and Q p-val
@@ -646,7 +646,7 @@ p_leave_chd_fat <- mr_leaveoneout_plot(leave_comb_chd_fat)
 p_leave_chd_fat[[1]]
 #
 mrpresso_chd_fat<- run_mr_presso(dat_harm_chd_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_chd_fat, file = "mr_presso/mrpresso_chd_fat.rds")
+saveRDS(mrpresso_chd_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_chd_fat.rds")
 
 # t2dadjbmi
 # Harmonise
@@ -654,7 +654,7 @@ dat_harm_t2dadjbmi_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = t2dadjbmi_out_dat_fat)
 #
-mr_report(dat_harm_t2dadjbmi_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_t2dadjbmi_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -665,7 +665,7 @@ MRInput_t2dadjbmi_fat <- mr_input(bx = dat_harm_t2dadjbmi_fat$beta.exposure,
 #Run MR
 MRAll_t2dadjbmi_fat <- mr_allmethods(MRInput_t2dadjbmi_fat, method = "all")
 res_t2dadjbmi_fat<- mr(dat_harm_t2dadjbmi_fat)
-sink("Results/MRAll_t2dadjbmi_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_t2dadjbmi_fat.txt")
 MRAll_t2dadjbmi_fat
 generate_odds_ratios(res_t2dadjbmi_fat)
 sink()
@@ -673,7 +673,7 @@ p_t2dadjbmi_fat<- mr_plot(mr_allmethods(MRInput_t2dadjbmi_fat, method = "main"))
 p_t2dadjbmi_fat +
     xlab("Fat intake (E%)") +
     ylab("T2D adjusted for BMI (T2DadjBMI)")+
-    ggsave(file = "Results/MRAll_t2dadjbmi_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_t2dadjbmi_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_t2dadjbmi_fat<-mr_heterogeneity(dat_harm_t2dadjbmi_fat) #Heterogeneity Q and Q p-val
@@ -687,7 +687,7 @@ p_leave_t2dadjbmi_fat <- mr_leaveoneout_plot(leave_comb_t2dadjbmi_fat)
 p_leave_t2dadjbmi_fat[[1]]
 #
 mrpresso_t2dadjbmi_fat<- run_mr_presso(dat_harm_t2dadjbmi_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_t2dadjbmi_fat, file = "mr_presso/mrpresso_t2dadjbmi_fat.rds")
+saveRDS(mrpresso_t2dadjbmi_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_t2dadjbmi_fat.rds")
 # Not enough intrumental variables
 
 # T2D
@@ -696,7 +696,7 @@ dat_harm_t2d_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = t2d_out_dat_fat)
 #
-mr_report(dat_harm_t2d_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_t2d_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -707,7 +707,7 @@ MRInput_t2d_fat <- mr_input(bx = dat_harm_t2d_fat$beta.exposure,
 #Run MR
 MRAll_t2d_fat <- mr_allmethods(MRInput_t2d_fat, method = "all")
 res_t2d_fat<- mr(dat_harm_t2d_fat)
-sink("Results/MRAll_t2d_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_t2d_fat.txt")
 MRAll_t2d_fat
 generate_odds_ratios(res_t2d_fat)
 sink()
@@ -715,7 +715,7 @@ p_t2d_fat<- mr_plot(mr_allmethods(MRInput_t2d_fat, method = "main"))
 p_t2d_fat +
     xlab("fatein intake (E%)") +
     ylab("T2D adjusted for BMI (T2D)") +
-    ggsave(file = "Results/MRAll_t2d_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_t2d_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_t2d_fat<-mr_heterogeneity(dat_harm_t2d_fat) #Heterogeneity Q and Q p-val
@@ -729,7 +729,7 @@ p_leave_t2d_fat <- mr_leaveoneout_plot(leave_comb_t2d_fat)
 p_leave_t2d_fat[[1]]
 #
 mrpresso_t2d_fat<- run_mr_presso(dat_harm_t2d_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_t2d_fat, file = "mr_presso/mrpresso_t2d_fat.rds")
+saveRDS(mrpresso_t2d_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_t2d_fat.rds")
 
 # Fasting glucose
 # Harmonise
@@ -737,7 +737,7 @@ dat_harm_fg_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = fg_out_dat_fat)
 #
-mr_report(dat_harm_fg_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_fg_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -747,14 +747,14 @@ MRInput_fg_fat <- mr_input(bx = dat_harm_fg_fat$beta.exposure,
                            byse = dat_harm_fg_fat$se.outcome)
 #Run MR
 MRAll_fg_fat <- mr_allmethods(MRInput_fg_fat, method = "all")
-sink("Results/MRAll_fg_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_fg_fat.txt")
 MRAll_fg_fat
 sink()
 p_fg_fat<- mr_plot(mr_allmethods(MRInput_fg_fat, method = "main"))
 p_fg_fat +
     xlab("Fat intake (E%)") +
     ylab("Fasting glucose (FG)")+
-    ggsave(file = "Results/MRAll_fg_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_fg_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_fg_fat<-mr_heterogeneity(dat_harm_fg_fat) #Heterogeneity Q and Q p-val
@@ -768,7 +768,7 @@ p_leave_fg_fat <- mr_leaveoneout_plot(leave_comb_fg_fat)
 p_leave_fg_fat[[1]]
 #
 mrpresso_fg_fat<- run_mr_presso(dat_harm_fg_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_fg_fat, file = "mr_presso/mrpresso_fg_fat.rds")
+saveRDS(mrpresso_fg_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_fg_fat.rds")
 #  Not enough instrumental variables
 
 # Two Hour glucose
@@ -777,7 +777,7 @@ dat_harm_twohg_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = twohg_out_dat_fat)
 #
-mr_report(dat_harm_twohg_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_twohg_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -787,14 +787,14 @@ MRInput_twohg_fat <- mr_input(bx = dat_harm_twohg_fat$beta.exposure,
                               byse = dat_harm_twohg_fat$se.outcome)
 #Run MR
 MRAll_twohg_fat <- mr_allmethods(MRInput_twohg_fat, method = "all")
-sink("Results/MRAll_twohg_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_twohg_fat.txt")
 MRAll_twohg_fat
 sink()
 p_twohg_fat<- mr_plot(mr_allmethods(MRInput_twohg_fat, method = "main"))
 p_twohg_fat +
     xlab("Fat intake (E%)") +
     ylab("Two-hour glucose (2hG)")+
-    ggsave(file = "Results/MRAll_twohg_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_twohg_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_twohg_fat<-mr_heterogeneity(dat_harm_twohg_fat) #Heterogeneity Q and Q p-val
@@ -808,7 +808,7 @@ p_leave_twohg_fat <- mr_leaveoneout_plot(leave_comb_twohg_fat)
 p_leave_twohg_fat[[1]]
 #
 mrpresso_twohg_fat<- run_mr_presso(dat_harm_twohg_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_twohg_fat, file = "mr_presso/mrpresso_twohg_fat.rds")
+saveRDS(mrpresso_twohg_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_twohg_fat.rds")
 #  Not enough instrumental variables
 
 # Stroke
@@ -817,7 +817,7 @@ dat_harm_stroke_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = stroke_out_dat_fat)
 #
-mr_report(dat_harm_stroke_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_stroke_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -828,7 +828,7 @@ MRInput_stroke_fat <- mr_input(bx = dat_harm_stroke_fat$beta.exposure,
 #Run MR
 MRAll_stroke_fat <- mr_allmethods(MRInput_stroke_fat, method = "all") #Method requires data on >2 variants
 res_stroke_fat<- mr(dat_harm_stroke_fat)
-sink("Results/MRAll_stroke_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_stroke_fat.txt")
 MRAll_stroke_fat
 generate_odds_ratios(res_stroke_fat)
 sink()
@@ -836,7 +836,7 @@ p_stroke_fat<- mr_plot(mr_allmethods(MRInput_stroke_fat, method = "main"))
 p_stroke_fat +
     xlab("Fat intake (E%)") +
     ylab("Stroke")+
-    ggsave(file = "Results/MRAll_stroke_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_stroke_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_stroke_fat<-mr_heterogeneity(dat_harm_stroke_fat) #Heterogeneity Q and Q p-val
@@ -850,7 +850,7 @@ p_leave_stroke_fat <- mr_leaveoneout_plot(leave_comb_stroke_fat)
 p_leave_stroke_fat[[1]]
 #
 mrpresso_stroke_fat<- run_mr_presso(dat_harm_stroke_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_stroke_fat, file = "mr_presso/mrpresso_stroke_fat.rds")
+saveRDS(mrpresso_stroke_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_stroke_fat.rds")
 #  Not enough instrumental variables
 
 # HDL
@@ -859,7 +859,7 @@ dat_harm_hdl_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = hdl_out_dat_fat)
 #
-mr_report(dat_harm_hdl_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_hdl_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -870,7 +870,7 @@ MRInput_hdl_fat <- mr_input(bx = dat_harm_hdl_fat$beta.exposure,
 #Run MR
 MRAll_hdl_fat <- mr_allmethods(MRInput_hdl_fat, method = "all")
 res_hdl_fat<- mr(dat_harm_hdl_fat)
-sink("Results/MRAll_hdl_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_hdl_fat.txt")
 MRAll_hdl_fat
 generate_odds_ratios(res_hdl_fat)
 sink()
@@ -878,7 +878,7 @@ p_hdl_fat<- mr_plot(mr_allmethods(MRInput_hdl_fat, method = "main"))
 p_hdl_fat +
     xlab("fatein intake (E%)") +
     ylab("hdl")+
-    ggsave(file = "Results/MRAll_hdl_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_hdl_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_hdl_fat<-mr_heterogeneity(dat_harm_hdl_fat) #Heterogeneity Q and Q p-val
@@ -892,7 +892,7 @@ p_leave_hdl_fat <- mr_leaveoneout_plot(leave_comb_hdl_fat)
 p_leave_hdl_fat[[1]]
 #
 mrpresso_hdl_fat<- run_mr_presso(dat_harm_hdl_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_hdl_fat, file = "mr_presso/mrpresso_hdl_fat.rds")
+saveRDS(mrpresso_hdl_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_hdl_fat.rds")
 
 # LDL
 # Harmonise
@@ -900,7 +900,7 @@ dat_harm_ldl_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = ldl_out_dat_fat)
 #
-mr_report(dat_harm_ldl_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_ldl_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -910,14 +910,14 @@ MRInput_ldl_fat <- mr_input(bx = dat_harm_ldl_fat$beta.exposure,
                             byse = dat_harm_ldl_fat$se.outcome)
 #Run MR
 MRAll_ldl_fat <- mr_allmethods(MRInput_ldl_fat, method = "all")
-sink("Results/MRAll_ldl_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_ldl_fat.txt")
 MRAll_ldl_fat
 sink()
 p_ldl_fat<- mr_plot(mr_allmethods(MRInput_ldl_fat, method = "main"))
 p_ldl_fat +
     xlab("fatein intake (E%)") +
     ylab("ldl")+
-    ggsave(file = "Results/MRAll_ldl_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_ldl_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_ldl_fat<-mr_heterogeneity(dat_harm_ldl_fat) #Heterogeneity Q and Q p-val
@@ -931,7 +931,7 @@ p_leave_ldl_fat <- mr_leaveoneout_plot(leave_comb_ldl_fat)
 p_leave_ldl_fat[[1]]
 #
 mrpresso_ldl_fat<- run_mr_presso(dat_harm_ldl_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_ldl_fat, file = "mr_presso/mrpresso_ldl_fat.rds")
+saveRDS(mrpresso_ldl_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_ldl_fat.rds")
 
 # CHOLESTEROL
 # Harmonise
@@ -939,7 +939,7 @@ dat_harm_skol_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = skol_out_dat_fat)
 #
-mr_report(dat_harm_skol_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_skol_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -949,14 +949,14 @@ MRInput_skol_fat <- mr_input(bx = dat_harm_skol_fat$beta.exposure,
                              byse = dat_harm_skol_fat$se.outcome)
 #Run MR
 MRAll_skol_fat <- mr_allmethods(MRInput_skol_fat, method = "all")
-sink("Results/MRAll_skol_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_skol_fat.txt")
 MRAll_skol_fat
 sink()
 p_skol_fat<- mr_plot(mr_allmethods(MRInput_skol_fat, method = "main"))
 p_skol_fat +
     xlab("fatein intake (E%)") +
     ylab("skol")+
-    ggsave(file = "Results/MRAll_skol_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_skol_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_skol_fat<-mr_heterogeneity(dat_harm_skol_fat) #Heterogeneity Q and Q p-val
@@ -970,7 +970,7 @@ p_leave_skol_fat <- mr_leaveoneout_plot(leave_comb_skol_fat)
 p_leave_skol_fat[[1]]
 #
 mrpresso_skol_fat<- run_mr_presso(dat_harm_skol_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_skol_fat, file = "mr_presso/mrpresso_skol_fat.rds")
+saveRDS(mrpresso_skol_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_skol_fat.rds")
 
 # TRIGLYCERIDES
 # Harmonise
@@ -978,7 +978,7 @@ dat_harm_stg_fat<- harmonise_data(
     exposure_dat = fat_exp_dat,
     outcome_dat = stg_out_dat_fat)
 #
-mr_report(dat_harm_stg_fat,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_stg_fat,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -988,14 +988,14 @@ MRInput_stg_fat <- mr_input(bx = dat_harm_stg_fat$beta.exposure,
                             byse = dat_harm_stg_fat$se.outcome)
 #Run MR
 MRAll_stg_fat <- mr_allmethods(MRInput_stg_fat, method = "all")
-sink("Results/MRAll_stg_fat.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_stg_fat.txt")
 MRAll_stg_fat
 sink()
 p_stg_fat<- mr_plot(mr_allmethods(MRInput_stg_fat, method = "main"))
 p_stg_fat +
     xlab("fatein intake (E%)") +
     ylab("stg")+
-    ggsave(file = "Results/MRAll_stg_fat_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_stg_fat_plot.pdf")
 
 # Sensitivity analyses
 het_comb_stg_fat<-mr_heterogeneity(dat_harm_stg_fat) #Heterogeneity Q and Q p-val
@@ -1009,7 +1009,7 @@ p_leave_stg_fat <- mr_leaveoneout_plot(leave_comb_stg_fat)
 p_leave_stg_fat[[1]]
 #
 mrpresso_stg_fat<- run_mr_presso(dat_harm_stg_fat, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_stg_fat, file = "mr_presso/mrpresso_stg_fat.rds")
+saveRDS(mrpresso_stg_fat, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_stg_fat.rds")
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #Read outcomes for Carbs
@@ -1063,7 +1063,7 @@ dat_harm_chd_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = chd_out_dat_carb)
 #
-mr_report(dat_harm_chd_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_chd_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1074,7 +1074,7 @@ MRInput_chd_carb <- mr_input(bx = dat_harm_chd_carb$beta.exposure,
 #Run MR
 MRAll_chd_carb <- mr_allmethods(MRInput_chd_carb, method = "all")
 res_chd_carb<- mr(dat_harm_chd_carb)
-sink("Results/MRAll_chd_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_chd_carb.txt")
 MRAll_chd_carb
 generate_odds_ratios(res_chd_carb)
 sink()
@@ -1082,7 +1082,7 @@ p_chd_carb<- mr_plot(mr_allmethods(MRInput_chd_carb, method = "main"))
 p_chd_carb +
     xlab("Carbohydrates intake (E%)") +
     ylab("Coronary heart disease (CHD)")+
-    ggsave(file = "Results/MRAll_chd_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_chd_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_chd_carb<-mr_heterogeneity(dat_harm_chd_carb) #Heterogeneity Q and Q p-val
@@ -1096,7 +1096,7 @@ p_leave_chd_carb <- mr_leaveoneout_plot(leave_comb_chd_carb)
 p_leave_chd_carb[[1]]
 #
 mrpresso_chd_carb<- run_mr_presso(dat_harm_chd_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_chd_carb, file = "mr_presso/mrpresso_chd_carb.rds")
+saveRDS(mrpresso_chd_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_chd_carb.rds")
 
 # t2dadjbmi
 # Harmonise
@@ -1104,7 +1104,7 @@ dat_harm_t2dadjbmi_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = t2dadjbmi_out_dat_carb)
 #
-mr_report(dat_harm_t2dadjbmi_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_t2dadjbmi_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1115,7 +1115,7 @@ MRInput_t2dadjbmi_carb <- mr_input(bx = dat_harm_t2dadjbmi_carb$beta.exposure,
 #Run MR
 MRAll_t2dadjbmi_carb <- mr_allmethods(MRInput_t2dadjbmi_carb, method = "all")
 res_t2dadjbmi_carb<- mr(dat_harm_t2dadjbmi_carb)
-sink("Results/MRAll_t2dadjbmi_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_t2dadjbmi_carb.txt")
 MRAll_t2dadjbmi_carb
 generate_odds_ratios(res_t2dadjbmi_carb)
 sink()
@@ -1123,7 +1123,7 @@ p_t2dadjbmi_carb<- mr_plot(mr_allmethods(MRInput_t2dadjbmi_carb, method = "main"
 p_t2dadjbmi_carb +
     xlab("Carbohydrates intake (E%)") +
     ylab("T2D adjusted for BMI (T2DadjBMI)")+
-    ggsave(file = "Results/MRAll_t2dadjbmi_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_t2dadjbmi_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_t2dadjbmi_carb<-mr_heterogeneity(dat_harm_t2dadjbmi_carb) #Heterogeneity Q and Q p-val
@@ -1137,7 +1137,7 @@ p_leave_t2dadjbmi_carb <- mr_leaveoneout_plot(leave_comb_t2dadjbmi_carb)
 p_leave_t2dadjbmi_carb[[1]]
 #
 mrpresso_t2dadjbmi_carb<- run_mr_presso(dat_harm_t2dadjbmi_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_t2dadjbmi_carb, file = "mr_presso/mr_presso/mrpresso_t2dadjbmi_carb.rds")
+saveRDS(mrpresso_t2dadjbmi_carb, file = "YOUR_PATHWAY_DIRECTORY/mr_presso/mrpresso_t2dadjbmi_carb.rds")
 
 # T2D
 # Harmonise
@@ -1145,7 +1145,7 @@ dat_harm_t2d_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = t2d_out_dat_carb)
 #
-mr_report(dat_harm_t2d_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_t2d_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1156,7 +1156,7 @@ MRInput_t2d_carb <- mr_input(bx = dat_harm_t2d_carb$beta.exposure,
 #Run MR
 MRAll_t2d_carb <- mr_allmethods(MRInput_t2d_carb, method = "all")
 res_t2d_carb<- mr(dat_harm_t2d_carb)
-sink("Results/MRAll_t2d_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_t2d_carb.txt")
 MRAll_t2d_carb
 generate_odds_ratios(res_t2d_carb)
 sink()
@@ -1164,7 +1164,7 @@ p_t2d_carb<- mr_plot(mr_allmethods(MRInput_t2d_carb, method = "main"))
 p_t2d_carb +
     xlab("carbein intake (E%)") +
     ylab("T2D adjusted for BMI (T2D)") +
-    ggsave(file = "Results/MRAll_t2d_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_t2d_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_t2d_carb<-mr_heterogeneity(dat_harm_t2d_carb) #Heterogeneity Q and Q p-val
@@ -1178,7 +1178,7 @@ p_leave_t2d_carb <- mr_leaveoneout_plot(leave_comb_t2d_carb)
 p_leave_t2d_carb[[1]]
 #
 mrpresso_t2d_carb<- run_mr_presso(dat_harm_t2d_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_t2d_carb, file = "mr_presso/mrpresso_t2d_carb.rds")
+saveRDS(mrpresso_t2d_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_t2d_carb.rds")
 
 # Fasting glucose
 # Harmonise
@@ -1186,7 +1186,7 @@ dat_harm_fg_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = fg_out_dat_carb)
 #
-mr_report(dat_harm_fg_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_fg_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1196,14 +1196,14 @@ MRInput_fg_carb <- mr_input(bx = dat_harm_fg_carb$beta.exposure,
                             byse = dat_harm_fg_carb$se.outcome)
 #Run MR
 MRAll_fg_carb <- mr_allmethods(MRInput_fg_carb, method = "all")
-sink("Results/MRAll_fg_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_fg_carb.txt")
 MRAll_fg_carb
 sink()
 p_fg_carb<- mr_plot(mr_allmethods(MRInput_fg_carb, method = "main"))
 p_fg_carb +
     xlab("Carbohydrates intake (E%)") +
     ylab("Fasting glucose (FG)")+
-    ggsave(file = "Results/MRAll_fg_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_fg_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_fg_carb<-mr_heterogeneity(dat_harm_fg_carb) #Heterogeneity Q and Q p-val
@@ -1217,7 +1217,7 @@ p_leave_fg_carb <- mr_leaveoneout_plot(leave_comb_fg_carb)
 p_leave_fg_carb[[1]]
 #
 mrpresso_fg_carb<- run_mr_presso(dat_harm_fg_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_fg_carb, file = "mr_presso/mrpresso_fg_carb.rds")
+saveRDS(mrpresso_fg_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_fg_carb.rds")
 #  Not enough instrumental variables
 
 # Two Hour glucose
@@ -1226,7 +1226,7 @@ dat_harm_twohg_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = twohg_out_dat_carb)
 #
-mr_report(dat_harm_twohg_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_twohg_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1236,14 +1236,14 @@ MRInput_twohg_carb <- mr_input(bx = dat_harm_twohg_carb$beta.exposure,
                                byse = dat_harm_twohg_carb$se.outcome)
 #Run MR
 MRAll_twohg_carb <- mr_allmethods(MRInput_twohg_carb, method = "all")
-sink("Results/MRAll_twohg_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_twohg_carb.txt")
 MRAll_twohg_carb
 sink()
 p_twohg_carb<- mr_plot(mr_allmethods(MRInput_twohg_carb, method = "main"))
 p_twohg_carb +
     xlab("Carbohydrates intake (E%)") +
     ylab("Two-hour glucose (2hG)")+
-    ggsave(file = "Results/MRAll_twohg_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_twohg_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_twohg_carb<-mr_heterogeneity(dat_harm_twohg_carb) #Heterogeneity Q and Q p-val
@@ -1257,7 +1257,7 @@ p_leave_twohg_carb <- mr_leaveoneout_plot(leave_comb_twohg_carb)
 p_leave_twohg_carb[[1]]
 #
 mrpresso_twohg_carb<- run_mr_presso(dat_harm_twohg_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_twohg_carb, file = "mr_presso/mrpresso_twohg_carb.rds")
+saveRDS(mrpresso_twohg_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_twohg_carb.rds")
 #  Not enough instrumental variables
 
 # Stroke
@@ -1266,7 +1266,7 @@ dat_harm_stroke_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = stroke_out_dat_carb)
 #
-mr_report(dat_harm_stroke_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_stroke_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1277,7 +1277,7 @@ MRInput_stroke_carb <- mr_input(bx = dat_harm_stroke_carb$beta.exposure,
 #Run MR
 MRAll_stroke_carb <- mr_allmethods(MRInput_stroke_carb, method = "all") #Method requires data on >2 variants
 res_stroke_carb<- mr(dat_harm_stroke_carb)
-sink("Results/MRAll_stroke_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_stroke_carb.txt")
 MRAll_stroke_carb
 generate_odds_ratios(res_stroke_carb)
 sink()
@@ -1285,7 +1285,7 @@ p_stroke_carb<- mr_plot(mr_allmethods(MRInput_stroke_carb, method = "main"))
 p_stroke_carb +
     xlab("Carbohydrates intake (E%)") +
     ylab("Stroke")+
-    ggsave(file = "Results/MRAll_stroke_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_stroke_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_stroke_carb<-mr_heterogeneity(dat_harm_stroke_carb) #Heterogeneity Q and Q p-val
@@ -1299,7 +1299,7 @@ p_leave_stroke_carb <- mr_leaveoneout_plot(leave_comb_stroke_carb)
 p_leave_stroke_carb[[1]]
 #
 mrpresso_stroke_carb<- run_mr_presso(dat_harm_stroke_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_stroke_carb, file = "mr_presso/mrpresso_stroke_carb.rds")
+saveRDS(mrpresso_stroke_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_stroke_carb.rds")
 #  Not enough instrumental variables
 
 # HDL
@@ -1308,7 +1308,7 @@ dat_harm_hdl_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = hdl_out_dat_carb)
 #
-mr_report(dat_harm_hdl_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_hdl_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1318,14 +1318,14 @@ MRInput_hdl_carb <- mr_input(bx = dat_harm_hdl_carb$beta.exposure,
                              byse = dat_harm_hdl_carb$se.outcome)
 #Run MR
 MRAll_hdl_carb <- mr_allmethods(MRInput_hdl_carb, method = "all")
-sink("Results/MRAll_hdl_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_hdl_carb.txt")
 MRAll_hdl_carb
 sink()
 p_hdl_carb<- mr_plot(mr_allmethods(MRInput_hdl_carb, method = "main"))
 p_hdl_carb +
     xlab("carbein intake (E%)") +
     ylab("hdl")+
-    ggsave(file = "Results/MRAll_hdl_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_hdl_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_hdl_carb<-mr_heterogeneity(dat_harm_hdl_carb) #Heterogeneity Q and Q p-val
@@ -1339,7 +1339,7 @@ p_leave_hdl_carb <- mr_leaveoneout_plot(leave_comb_hdl_carb)
 p_leave_hdl_carb[[1]]
 #
 mrpresso_hdl_carb<- run_mr_presso(dat_harm_hdl_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_hdl_carb, file = "mr_presso/mrpresso_hdl_carb.rds")
+saveRDS(mrpresso_hdl_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_hdl_carb.rds")
 
 # LDL
 # Harmonise
@@ -1347,7 +1347,7 @@ dat_harm_ldl_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = ldl_out_dat_carb)
 #
-mr_report(dat_harm_ldl_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_ldl_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1357,14 +1357,14 @@ MRInput_ldl_carb <- mr_input(bx = dat_harm_ldl_carb$beta.exposure,
                              byse = dat_harm_ldl_carb$se.outcome)
 #Run MR
 MRAll_ldl_carb <- mr_allmethods(MRInput_ldl_carb, method = "all")
-sink("Results/MRAll_ldl_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_ldl_carb.txt")
 MRAll_ldl_carb
 sink()
 p_ldl_carb<- mr_plot(mr_allmethods(MRInput_ldl_carb, method = "main"))
 p_ldl_carb +
     xlab("carbein intake (E%)") +
     ylab("ldl")+
-    ggsave(file = "Results/MRAll_ldl_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_ldl_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_ldl_carb<-mr_heterogeneity(dat_harm_ldl_carb) #Heterogeneity Q and Q p-val
@@ -1378,7 +1378,7 @@ p_leave_ldl_carb <- mr_leaveoneout_plot(leave_comb_ldl_carb)
 p_leave_ldl_carb[[1]]
 #
 mrpresso_ldl_carb<- run_mr_presso(dat_harm_ldl_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_ldl_carb, file = "mr_presso/mrpresso_ldl_carb.rds")
+saveRDS(mrpresso_ldl_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_ldl_carb.rds")
 
 # CHOLESTEROL
 # Harmonise
@@ -1386,7 +1386,7 @@ dat_harm_skol_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = skol_out_dat_carb)
 #
-mr_report(dat_harm_skol_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_skol_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1396,14 +1396,14 @@ MRInput_skol_carb <- mr_input(bx = dat_harm_skol_carb$beta.exposure,
                               byse = dat_harm_skol_carb$se.outcome)
 #Run MR
 MRAll_skol_carb <- mr_allmethods(MRInput_skol_carb, method = "all")
-sink("Results/MRAll_skol_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_skol_carb.txt")
 MRAll_skol_carb
 sink()
 p_skol_carb<- mr_plot(mr_allmethods(MRInput_skol_carb, method = "main"))
 p_skol_carb +
     xlab("carbein intake (E%)") +
     ylab("skol")+
-    ggsave(file = "Results/MRAll_skol_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_skol_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_skol_carb<-mr_heterogeneity(dat_harm_skol_carb) #Heterogeneity Q and Q p-val
@@ -1417,7 +1417,7 @@ p_leave_skol_carb <- mr_leaveoneout_plot(leave_comb_skol_carb)
 p_leave_skol_carb[[1]]
 #
 mrpresso_skol_carb<- run_mr_presso(dat_harm_skol_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_skol_carb, file = "mr_presso/mrpresso_skol_carb.rds")
+saveRDS(mrpresso_skol_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_skol_carb.rds")
 
 # TRIGLYCERIDES
 # Harmonise
@@ -1425,7 +1425,7 @@ dat_harm_stg_carb<- harmonise_data(
     exposure_dat = carb_exp_dat,
     outcome_dat = stg_out_dat_carb)
 #
-mr_report(dat_harm_stg_carb,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_stg_carb,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1435,14 +1435,14 @@ MRInput_stg_carb <- mr_input(bx = dat_harm_stg_carb$beta.exposure,
                              byse = dat_harm_stg_carb$se.outcome)
 #Run MR
 MRAll_stg_carb <- mr_allmethods(MRInput_stg_carb, method = "all")
-sink("Results/MRAll_stg_carb.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_stg_carb.txt")
 MRAll_stg_carb
 sink()
 p_stg_carb<- mr_plot(mr_allmethods(MRInput_stg_carb, method = "main"))
 p_stg_carb +
     xlab("carbein intake (E%)") +
     ylab("stg")+
-    ggsave(file = "Results/MRAll_stg_carb_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_stg_carb_plot.pdf")
 
 # Sensitivity analyses
 het_comb_stg_carb<-mr_heterogeneity(dat_harm_stg_carb) #Heterogeneity Q and Q p-val
@@ -1456,7 +1456,7 @@ p_leave_stg_carb <- mr_leaveoneout_plot(leave_comb_stg_carb)
 p_leave_stg_carb[[1]]
 #
 mrpresso_stg_carb<- run_mr_presso(dat_harm_stg_carb, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_stg_carb, file = "mr_presso/mrpresso_stg_carb.rds")
+saveRDS(mrpresso_stg_carb, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_stg_carb.rds")
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #Read outcomes for sugars
@@ -1510,7 +1510,7 @@ dat_harm_chd_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = chd_out_dat_sugar)
 #
-mr_report(dat_harm_chd_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_chd_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1521,7 +1521,7 @@ MRInput_chd_sugar <- mr_input(bx = dat_harm_chd_sugar$beta.exposure,
 #Run MR
 MRAll_chd_sugar <- mr_allmethods(MRInput_chd_sugar, method = "all")
 res_chd_sugar<- mr(dat_harm_chd_sugar)
-sink("Results/MRAll_chd_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_chd_sugar.txt")
 MRAll_chd_sugar
 generate_odds_ratios(res_chd_sugar)
 sink()
@@ -1529,7 +1529,7 @@ p_chd_sugar<- mr_plot(mr_allmethods(MRInput_chd_sugar, method = "main"))
 p_chd_sugar +
     xlab("Sugar intake (E%)") +
     ylab("Coronary heart disease (CHD)")+
-    ggsave(file = "Results/MRAll_chd_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_chd_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_chd_sugar<-mr_heterogeneity(dat_harm_chd_sugar) #Heterogeneity Q and Q p-val
@@ -1543,7 +1543,7 @@ p_leave_chd_sugar <- mr_leaveoneout_plot(leave_comb_chd_sugar)
 p_leave_chd_sugar[[1]]
 #
 mrpresso_chd_sugar<- run_mr_presso(dat_harm_chd_sugar, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_chd_sugar, file = "mr_presso/mrpresso_chd_sugar.rds")
+saveRDS(mrpresso_chd_sugar, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_chd_sugar.rds")
 
 # t2dadjbmi
 # Harmonise
@@ -1551,7 +1551,7 @@ dat_harm_t2dadjbmi_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = t2dadjbmi_out_dat_sugar)
 #
-mr_report(dat_harm_t2dadjbmi_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_t2dadjbmi_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1562,7 +1562,7 @@ MRInput_t2dadjbmi_sugar <- mr_input(bx = dat_harm_t2dadjbmi_sugar$beta.exposure,
 #Run MR
 MRAll_t2dadjbmi_sugar <- mr_allmethods(MRInput_t2dadjbmi_sugar, method = "all")
 res_t2dadjbmi_sugar<- mr(dat_harm_t2dadjbmi_sugar)
-sink("Results/MRAll_t2dadjbmi_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_t2dadjbmi_sugar.txt")
 MRAll_t2dadjbmi_sugar
 generate_odds_ratios(res_t2dadjbmi_sugar)
 sink()
@@ -1571,7 +1571,7 @@ p_t2dadjbmi_sugar<- mr_plot(mr_allmethods(MRInput_t2dadjbmi_sugar, method = "mai
 p_t2dadjbmi_sugar +
     xlab("Sugar intake (E%)") +
     ylab("T2D adjusted for BMI (T2DadjBMI)")+
-    ggsave(file = "Results/MRAll_t2dadjbmi_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_t2dadjbmi_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_t2dadjbmi_sugar<-mr_heterogeneity(dat_harm_t2dadjbmi_sugar) #Heterogeneity Q and Q p-val
@@ -1586,7 +1586,7 @@ p_leave_t2dadjbmi_sugar[[1]]
 #
 mrpresso_t2dadjbmi_sugar<- run_mr_presso(dat_harm_t2dadjbmi_sugar, NbDistribution = 10000, SignifThreshold = 0.05)
 #Not enough SNPs available
-saveRDS(mrpresso_t2dadjbmi_sugar, file = "mr_presso/mrpresso_t2dadjbmi_sugar.rds")
+saveRDS(mrpresso_t2dadjbmi_sugar, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_t2dadjbmi_sugar.rds")
 
 # t2d
 # Harmonise
@@ -1594,7 +1594,7 @@ dat_harm_t2d_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = t2d_out_dat_sugar)
 #
-mr_report(dat_harm_t2d_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_t2d_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1605,7 +1605,7 @@ MRInput_t2d_sugar <- mr_input(bx = dat_harm_t2d_sugar$beta.exposure,
 #Run MR
 MRAll_t2d_sugar <- mr_allmethods(MRInput_t2d_sugar, method = "all")
 res_t2d_sugar<- mr(dat_harm_t2d_sugar)
-sink("Results/MRAll_t2d_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_t2d_sugar.txt")
 MRAll_t2d_sugar
 generate_odds_ratios(res_t2d_sugar)
 sink()
@@ -1613,7 +1613,7 @@ p_t2d_sugar<- mr_plot(mr_allmethods(MRInput_t2d_sugar, method = "main"))
 p_t2d_sugar +
     xlab("sugarein intake (E%)") +
     ylab("T2D adjusted for BMI (T2D)") +
-    ggsave(file = "Results/MRAll_t2d_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_t2d_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_t2d_sugar<-mr_heterogeneity(dat_harm_t2d_sugar) #Heterogeneity Q and Q p-val
@@ -1627,7 +1627,7 @@ p_leave_t2d_sugar <- mr_leaveoneout_plot(leave_comb_t2d_sugar)
 p_leave_t2d_sugar[[1]]
 #
 mrpresso_t2d_sugar<- run_mr_presso(dat_harm_t2d_sugar, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_t2d_sugar, file = "mr_presso/mrpresso_t2d_sugar.rds")
+saveRDS(mrpresso_t2d_sugar, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_t2d_sugar.rds")
 # Not enough intrumental variables
 
 # Fasting glucose
@@ -1636,7 +1636,7 @@ dat_harm_fg_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = fg_out_dat_sugar)
 #
-mr_report(dat_harm_fg_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_fg_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1646,14 +1646,14 @@ MRInput_fg_sugar <- mr_input(bx = dat_harm_fg_sugar$beta.exposure,
                              byse = dat_harm_fg_sugar$se.outcome)
 #Run MR
 MRAll_fg_sugar <- mr_allmethods(MRInput_fg_sugar, method = "all")
-sink("Results/MRAll_fg_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_fg_sugar.txt")
 MRAll_fg_sugar
 sink()
 p_fg_sugar<- mr_plot(mr_allmethods(MRInput_fg_sugar, method = "main"))
 p_fg_sugar +
     xlab("Sugar intake (E%)") +
     ylab("T2D adjusted for BMI (fg)")+
-    ggsave(file = "Results/MRAll_fg_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_fg_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_fg_sugar<-mr_heterogeneity(dat_harm_fg_sugar) #Heterogeneity Q and Q p-val
@@ -1676,7 +1676,7 @@ dat_harm_twohg_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = twohg_out_dat_sugar)
 #
-mr_report(dat_harm_twohg_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_twohg_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1686,14 +1686,14 @@ MRInput_twohg_sugar <- mr_input(bx = dat_harm_twohg_sugar$beta.exposure,
                                 byse = dat_harm_twohg_sugar$se.outcome)
 #Run MR
 MRAll_twohg_sugar <- mr_allmethods(MRInput_twohg_sugar, method = "all")
-sink("Results/MRAll_twohg_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_twohg_sugar.txt")
 MRAll_twohg_sugar
 sink()
 p_twohg_sugar<- mr_plot(mr_allmethods(MRInput_twohg_sugar, method = "main"))
 p_twohg_sugar +
     xlab("Sugar intake (E%)") +
     ylab("Two-hour glucose (2hG)")+
-    ggsave(file = "Results/MRAll_twohg_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_twohg_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_twohg_sugar<-mr_heterogeneity(dat_harm_twohg_sugar) #Heterogeneity Q and Q p-val
@@ -1716,7 +1716,7 @@ dat_harm_stroke_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = stroke_out_dat_sugar)
 #
-mr_report(dat_harm_stroke_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_stroke_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1727,7 +1727,7 @@ MRInput_stroke_sugar <- mr_input(bx = dat_harm_stroke_sugar$beta.exposure,
 #Run MR
 MRAll_stroke_sugar <- mr_allmethods(MRInput_stroke_sugar, method = "all") #Method requires data on >2 variants
 res_stroke_sugar<- mr(dat_harm_stroke_sugar)
-sink("Results/MRAll_stroke_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_stroke_sugar.txt")
 MRAll_stroke_sugar
 generate_odds_ratios(res_stroke_sugar)
 sink()
@@ -1735,7 +1735,7 @@ p_stroke_sugar<- mr_plot(mr_allmethods(MRInput_stroke_sugar, method = "main"))
 p_stroke_sugar +
     xlab("Sugar intake (E%)") +
     ylab("Stroke")+
-    ggsave(file = "Results/MRAll_stroke_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_stroke_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_stroke_sugar<-mr_heterogeneity(dat_harm_stroke_sugar) #Heterogeneity Q and Q p-val
@@ -1749,7 +1749,7 @@ p_leave_stroke_sugar <- mr_leaveoneout_plot(leave_comb_stroke_sugar)
 p_leave_stroke_sugar[[1]]
 #
 mrpresso_stroke_sugar<- run_mr_presso(dat_harm_stroke_sugar, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_stroke_sugar, file = "mr_presso/mrpresso_stroke_sugar.rds")
+saveRDS(mrpresso_stroke_sugar, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_stroke_sugar.rds")
 #  Not enough instrumental variables
 
 # HDL
@@ -1758,7 +1758,7 @@ dat_harm_hdl_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = hdl_out_dat_sugar)
 #
-mr_report(dat_harm_hdl_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_hdl_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1768,14 +1768,14 @@ MRInput_hdl_sugar <- mr_input(bx = dat_harm_hdl_sugar$beta.exposure,
                               byse = dat_harm_hdl_sugar$se.outcome)
 #Run MR
 MRAll_hdl_sugar <- mr_allmethods(MRInput_hdl_sugar, method = "all")
-sink("Results/MRAll_hdl_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_hdl_sugar.txt")
 MRAll_hdl_sugar
 sink()
 p_hdl_sugar<- mr_plot(mr_allmethods(MRInput_hdl_sugar, method = "main"))
 p_hdl_sugar +
     xlab("sugarein intake (E%)") +
     ylab("hdl")+
-    ggsave(file = "Results/MRAll_hdl_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_hdl_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_hdl_sugar<-mr_heterogeneity(dat_harm_hdl_sugar) #Heterogeneity Q and Q p-val
@@ -1789,7 +1789,7 @@ p_leave_hdl_sugar <- mr_leaveoneout_plot(leave_comb_hdl_sugar)
 p_leave_hdl_sugar[[1]]
 #
 mrpresso_hdl_sugar<- run_mr_presso(dat_harm_hdl_sugar, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_hdl_sugar, file = "mr_presso/mrpresso_hdl_sugar.rds")
+saveRDS(mrpresso_hdl_sugar, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_hdl_sugar.rds")
 
 # LDL
 # Harmonise
@@ -1797,7 +1797,7 @@ dat_harm_ldl_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = ldl_out_dat_sugar)
 #
-mr_report(dat_harm_ldl_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_ldl_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1807,14 +1807,14 @@ MRInput_ldl_sugar <- mr_input(bx = dat_harm_ldl_sugar$beta.exposure,
                               byse = dat_harm_ldl_sugar$se.outcome)
 #Run MR
 MRAll_ldl_sugar <- mr_allmethods(MRInput_ldl_sugar, method = "all")
-sink("Results/MRAll_ldl_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_ldl_sugar.txt")
 MRAll_ldl_sugar
 sink()
 p_ldl_sugar<- mr_plot(mr_allmethods(MRInput_ldl_sugar, method = "main"))
 p_ldl_sugar +
     xlab("sugarein intake (E%)") +
     ylab("ldl")+
-    ggsave(file = "Results/MRAll_ldl_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_ldl_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_ldl_sugar<-mr_heterogeneity(dat_harm_ldl_sugar) #Heterogeneity Q and Q p-val
@@ -1828,7 +1828,7 @@ p_leave_ldl_sugar <- mr_leaveoneout_plot(leave_comb_ldl_sugar)
 p_leave_ldl_sugar[[1]]
 #
 mrpresso_ldl_sugar<- run_mr_presso(dat_harm_ldl_sugar, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_ldl_sugar, file = "mr_presso/mrpresso_ldl_sugar.rds")
+saveRDS(mrpresso_ldl_sugar, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_ldl_sugar.rds")
 
 # CHOLESTEROL
 # Harmonise
@@ -1836,7 +1836,7 @@ dat_harm_skol_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = skol_out_dat_sugar)
 #
-mr_report(dat_harm_skol_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_skol_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1846,14 +1846,14 @@ MRInput_skol_sugar <- mr_input(bx = dat_harm_skol_sugar$beta.exposure,
                                byse = dat_harm_skol_sugar$se.outcome)
 #Run MR
 MRAll_skol_sugar <- mr_allmethods(MRInput_skol_sugar, method = "all")
-sink("Results/MRAll_skol_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_skol_sugar.txt")
 MRAll_skol_sugar
 sink()
 p_skol_sugar<- mr_plot(mr_allmethods(MRInput_skol_sugar, method = "main"))
 p_skol_sugar +
     xlab("sugarein intake (E%)") +
     ylab("skol")+
-    ggsave(file = "Results/MRAll_skol_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_skol_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_skol_sugar<-mr_heterogeneity(dat_harm_skol_sugar) #Heterogeneity Q and Q p-val
@@ -1867,7 +1867,7 @@ p_leave_skol_sugar <- mr_leaveoneout_plot(leave_comb_skol_sugar)
 p_leave_skol_sugar[[1]]
 #
 mrpresso_skol_sugar<- run_mr_presso(dat_harm_skol_sugar, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_skol_sugar, file = "mr_presso/mrpresso_skol_sugar.rds")
+saveRDS(mrpresso_skol_sugar, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_skol_sugar.rds")
 
 # TRIGLYCERIDES
 # Harmonise
@@ -1875,7 +1875,7 @@ dat_harm_stg_sugar<- harmonise_data(
     exposure_dat = sugar_exp_dat,
     outcome_dat = stg_out_dat_sugar)
 #
-mr_report(dat_harm_stg_sugar,output_path = "/Users/hugopomaresmillan/Desktop/mediation/DIET_MR/Results",
+mr_report(dat_harm_stg_sugar,output_path = "YOUR_PATHWAY_DIRECTORY/",
           output_type = "pdf",author = "Hugo P", study = "Two Sample MR",path = system.file("reports", package = "TwoSampleMR"))
 
 # create input
@@ -1885,14 +1885,14 @@ MRInput_stg_sugar <- mr_input(bx = dat_harm_stg_sugar$beta.exposure,
                               byse = dat_harm_stg_sugar$se.outcome)
 #Run MR
 MRAll_stg_sugar <- mr_allmethods(MRInput_stg_sugar, method = "all")
-sink("Results/MRAll_stg_sugar.txt")
+sink("YOUR_PATHWAY_DIRECTORY/MRAll_stg_sugar.txt")
 MRAll_stg_sugar
 sink()
 p_stg_sugar<- mr_plot(mr_allmethods(MRInput_stg_sugar, method = "main"))
 p_stg_sugar +
     xlab("sugarein intake (E%)") +
     ylab("stg")+
-    ggsave(file = "Results/MRAll_stg_sugar_plot.pdf")
+    ggsave(file = "YOUR_PATHWAY_DIRECTORY/MRAll_stg_sugar_plot.pdf")
 
 # Sensitivity analyses
 het_comb_stg_sugar<-mr_heterogeneity(dat_harm_stg_sugar) #Heterogeneity Q and Q p-val
@@ -1906,7 +1906,7 @@ p_leave_stg_sugar <- mr_leaveoneout_plot(leave_comb_stg_sugar)
 p_leave_stg_sugar[[1]]
 #
 mrpresso_stg_sugar<- run_mr_presso(dat_harm_stg_sugar, NbDistribution = 10000, SignifThreshold = 0.05)
-saveRDS(mrpresso_stg_sugar, file = "mr_presso/mrpresso_stg_sugar.rds")
+saveRDS(mrpresso_stg_sugar, file = "YOUR_PATHWAY_DIRECTORY/mrpresso_stg_sugar.rds")
 ###
 #save.image(file = "mr_macronutrients.RData")
 ############################ END ##############################
