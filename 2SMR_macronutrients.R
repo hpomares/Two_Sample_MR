@@ -17,21 +17,6 @@ head(prot_exp_dat)
 # clump
 prot_exp_dat <- clump_data(prot_exp_dat)
 
-#FAT
-fat_fil <- import("Diet_Fat_GWAS_MA_SSGAC_2020_MolPsych.txt")
-# format
-carb_exp_dat <- format_data(carb_fil_names, type="exposure")
-head(carb_exp_dat)
-# clump
-carb_exp_dat <- clump_data(carb_exp_dat)
-
-#SUGAR
-sugar_fil <- import("Diet_Sugar_GWAS_MA_SSGAC_2020_MolPsych.txt")
-# format
-sugar_exp_dat <- format_data(sugar_fil_names, type="exposure")
-head(sugar_exp_dat)
-# clump
-sugar_exp_dat <- clump_data(sugar_exp_dat)
 #################################################################################################
 ## example for protein intake and CHD
 #################################################################################################
@@ -129,7 +114,7 @@ r.exposure <- get_r_from_lor(lor, af, ncase, ncontrol, prevalence, model = "logi
 # calculate r^2 and F-statistic
 r2_exp <- sum(r.exposure^2)
 # f_stat <- (r2_exp*(n-1-k))/((1-r2_exp)*k)  # where n = samplesize.exposure and k = number of IVs
-f_stat <- (r2_exp*(12225-1-nrow(dat_harm_chd_prot)))/((1-r2_exp)*nrow(dat_harm_chd_prot))
+f_stat <- (r2_exp*(dat_harm_chd_prot$samples.size-1-nrow(dat_harm_chd_prot)))/((1-r2_exp)*nrow(dat_harm_chd_prot))
 r2_exp # R^2 for exposure 
 f_stat # F-statistic 
 ###################### END ###########################################
